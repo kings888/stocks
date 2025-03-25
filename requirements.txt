@@ -1,0 +1,16 @@
+Django==5.0.1
+django-cors-headers==4.3.1
+psycopg2-binary==2.9.9
+redis==5.0.1
+scrapy==2.11.0
+selenium==4.16.0
+requests==2.31.0
+PyJWT==2.8.0
+django-redis==5.4.0
+echarts-python==0.1.6
+celery==5.3.6
+flower==2.0.1
+django-celery-beat==2.5.0
+pandas==2.1.4
+numpy==1.26.3
+django-environ==0.11.2

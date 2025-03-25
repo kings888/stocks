@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股市资金流向分析 - 首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">股市资金流向</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/market/overview">市场概览</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/market/top-list">龙虎榜</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/market/analysis">游资分析</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav" id="userNav">
+                    <a class="nav-link" href="/user/login">登录</a>
+                    <a class="nav-link" href="/user/register">注册</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">今日市场资金流向</h5>
+                        <div id="marketOverview" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">龙虎榜TOP5</h5>
+                        <div id="topList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">VIP功能介绍</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="pricing-card text-center p-4">
+                                    <h3>月度会员</h3>
+                                    <h4 class="price">¥29.99/月</h4>
+                                    <ul class="list-unstyled mt-3">
+                                        <li>游资历史交易记录</li>
+                                        <li>交易成功率分析</li>
+                                        <li>资金流向趋势图</li>
+                                    </ul>
+                                    <button class="btn btn-primary mt-3">立即订阅</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pricing-card text-center p-4">
+                                    <h3>季度会员</h3>
+                                    <h4 class="price">¥79.99/季</h4>
+                                    <ul class="list-unstyled mt-3">
+                                        <li>所有月度会员功能</li>
+                                        <li>历史数据导出</li>
+                                        <li>每日数据提醒</li>
+                                    </ul>
+                                    <button class="btn btn-primary mt-3">立即订阅</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="pricing-card text-center p-4">
+                                    <h3>年度会员</h3>
+                                    <h4 class="price">¥299.99/年</h4>
+                                    <ul class="list-unstyled mt-3">
+                                        <li>所有季度会员功能</li>
+                                        <li>API接口调用</li>
+                                        <li>专属客服支持</li>
+                                    </ul>
+                                    <button class="btn btn-primary mt-3">立即订阅</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-dark">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 股市资金流向分析. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="/static/js/market.js"></script>
+</body>
+</html>
