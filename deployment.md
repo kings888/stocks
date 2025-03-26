@@ -26,29 +26,24 @@ sudo apt install -y python3-pip python3-venv postgresql postgresql-contrib redis
 sudo dnf install -y python38 python38-pip postgresql-server postgresql-contrib redis nginx
 ```
 
-### 2.2 创建项目目录
+### 2.2 克隆项目代码
 ```bash
-mkdir -p /var/www/stocks
-cd /var/www/stocks
+git clone <项目仓库URL> /root/stocks
+cd /root/stocks
 ```
 
-### 2.3 克隆项目代码
-```bash
-git clone <项目仓库URL> .
-```
-
-### 2.4 创建虚拟环境
+### 2.3 创建虚拟环境
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 2.5 安装项目依赖
+### 2.4 安装项目依赖
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2.6 配置环境变量
+### 2.5 配置环境变量
 创建`.env`文件并配置以下环境变量：
 ```plaintext
 DJANGO_SETTINGS_MODULE=stocks.settings
@@ -59,7 +54,7 @@ DEBUG=False
 ALLOWED_HOSTS=your-domain.com,www.your-domain.com
 ```
 
-### 2.7 数据库配置
+### 2.6 数据库配置
 ```bash
 # 创建数据库和用户
 sudo -u postgres psql
@@ -76,12 +71,12 @@ GRANT ALL PRIVILEGES ON DATABASE stocks TO stocks_user;
 python manage.py migrate
 ```
 
-### 2.8 收集静态文件
+### 2.7 收集静态文件
 ```bash
 python manage.py collectstatic --noinput
 ```
 
-### 2.9 配置Gunicorn
+### 2.8 配置Gunicorn
 创建`/etc/systemd/system/gunicorn_stocks.service`：
 ```ini
 [Unit]
@@ -89,20 +84,20 @@ Description=gunicorn daemon for stocks project
 After=network.target
 
 [Service]
-User=www-data
-Group=www-data
-WorkingDirectory=/var/www/stocks
-EnvironmentFile=/var/www/stocks/.env
-ExecStart=/var/www/stocks/venv/bin/gunicorn \
+User=root
+Group=root
+WorkingDirectory=/root/stocks
+EnvironmentFile=/root/stocks/.env
+ExecStart=/root/stocks/venv/bin/gunicorn \
           --workers 3 \
-          --bind unix:/var/www/stocks/stocks.sock \
+          --bind unix:/root/stocks/stocks.sock \
           stocks.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-### 2.10 配置Nginx
+### 2.9 配置Nginx
 创建`/etc/nginx/sites-available/stocks`：
 ```nginx
 server {
@@ -112,12 +107,12 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
     
     location /static/ {
-        root /var/www/stocks;
+        root /root/stocks;
     }
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/var/www/stocks/stocks.sock;
+        proxy_pass http://unix:/root/stocks/stocks.sock;
     }
 }
 ```
@@ -129,7 +124,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-### 2.11 配置Celery服务
+### 2.10 配置Celery服务
 创建`/etc/systemd/system/celery_stocks.service`：
 ```ini
 [Unit]
@@ -138,17 +133,17 @@ After=network.target
 
 [Service]
 Type=forking
-User=www-data
-Group=www-data
-WorkingDirectory=/var/www/stocks
-EnvironmentFile=/var/www/stocks/.env
-ExecStart=/var/www/stocks/venv/bin/celery -A stocks worker -l info
+User=root
+Group=root
+WorkingDirectory=/root/stocks
+EnvironmentFile=/root/stocks/.env
+ExecStart=/root/stocks/venv/bin/celery -A stocks worker -l info
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-### 2.12 启动服务
+### 2.11 启动服务
 ```bash
 # 启动Gunicorn
 sudo systemctl start gunicorn_stocks
@@ -230,7 +225,7 @@ sudo systemctl enable celery_stocks
 1. 数据库备份
    ```bash
    # 创建备份脚本
-   pg_dump -U stocks_user stocks > /backup/stocks_$(date +%Y%m%d).sql
+   pg_dump -U stocks_user stocks > /root/backup/stocks_$(date +%Y%m%d).sql
    ```
 
 2. 配置文件备份
@@ -248,5 +243,3 @@ sudo systemctl enable celery_stocks
    - 配置数据库主从复制
    - 使用Redis集群
    - 实现服务器冗余
-
-   --TEXT
