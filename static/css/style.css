@@ -117,6 +117,18 @@ body {
     font-size: 1.1rem;
 }
 
+.footer .slogan {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(45deg, #ffeb3b, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .pricing-card {
