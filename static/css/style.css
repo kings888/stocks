@@ -9,13 +9,13 @@ body {
 /* 导航栏样式 */
 .navbar {
     box-shadow: 0 4px 8px rgba(0,0,0,.2);
-    background: linear-gradient(to right, #2c3e50, #3498db) !important;
+    background: linear-gradient(to right, #8b0000, #ff0000) !important;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 1.8rem;
-    background: linear-gradient(45deg, #fff, #e1e1e1);
+    background: linear-gradient(45deg, #fff, #ffcccc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -36,7 +36,7 @@ body {
 }
 
 .card-title {
-    color: #3498db;
+    color: #ff3333;
     font-weight: 700;
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
@@ -47,27 +47,27 @@ body {
     background: linear-gradient(145deg, #222, #2a2a2a);
     border-radius: 20px;
     transition: all 0.4s ease;
-    border: 1px solid rgba(52, 152, 219, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.1);
     padding: 2rem !important;
 }
 
 .pricing-card:hover {
-    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
     transform: translateY(-15px);
-    border: 1px solid rgba(52, 152, 219, 0.3);
+    border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
 .pricing-card h3 {
     color: #fff;
     font-weight: 700;
     font-size: 1.8rem;
-    background: linear-gradient(45deg, #3498db, #2ecc71);
+    background: linear-gradient(45deg, #ff0000, #ff6666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .pricing-card .price {
-    color: #3498db;
+    color: #ff3333;
     font-size: 2.5rem;
     font-weight: 800;
     margin: 1.5rem 0;
@@ -81,7 +81,7 @@ body {
 }
 
 .pricing-card .btn-primary {
-    background: linear-gradient(45deg, #3498db, #2ecc71);
+    background: linear-gradient(45deg, #ff0000, #ff6666);
     border: none;
     padding: 12px 35px;
     font-weight: 600;
@@ -91,7 +91,7 @@ body {
 }
 
 .pricing-card .btn-primary:hover {
-    background: linear-gradient(45deg, #2ecc71, #3498db);
+    background: linear-gradient(45deg, #ff6666, #ff0000);
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
@@ -107,8 +107,8 @@ body {
 
 /* 页脚样式 */
 .footer {
-    background: linear-gradient(to right, #2c3e50, #3498db) !important;
-    color: #ecf0f1 !important;
+    background: linear-gradient(to right, #8b0000, #ff0000) !important;
+    color: #ffcccc !important;
     padding: 2rem 0 !important;
 }
 
