@@ -47,7 +47,7 @@ pip install -r requirements.txt
 创建`.env`文件并配置以下环境变量：
 ```plaintext
 DJANGO_SETTINGS_MODULE=stocks.settings
-DJANGO_SECRET_KEY=<your-secret-key>
+DJANGO_SECRET_KEY=<your-secret-key>:
 DATABASE_URL=postgres://user:password@localhost:5432/stocks
 REDIS_URL=redis://localhost:6379/0
 DEBUG=False
@@ -60,7 +60,7 @@ ALLOWED_HOSTS=your-domain.com,www.your-domain.com
 sudo -u postgres psql
 
 CREATE DATABASE stocks;
-CREATE USER stocks_user WITH PASSWORD 'your-password';
+CREATE USER stocks_user WITH PASSWORD 'trb945';
 ALTER ROLE stocks_user SET client_encoding TO 'utf8';
 ALTER ROLE stocks_user SET default_transaction_isolation TO 'read committed';
 ALTER ROLE stocks_user SET timezone TO 'UTC';
